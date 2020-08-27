@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/ashotel", {
-  useNewUrlParser: "true",
+mongoose.connect("mongodb+srv://as_service:uVPv8nrlELQBX6Jm@asservice.2me8m.mongodb.net/asservice?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex:true 
 })
 
 mongoose.connection.on("error", err => {

@@ -11,7 +11,8 @@ module.exports = {
       })
       return otp
     }catch(err){
-      res.json({message: err.message})
+      console.log(err.message)
+      return res.json({message: err.message})
     }
   }
 }
