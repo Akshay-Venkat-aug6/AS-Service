@@ -23,12 +23,15 @@ const  DatePickers = () => {
   const [checkOuterror, setCheckouterror] = useState('');
 
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
+  var futuredate = new Date();
+  var dd = parseInt(String(today.getDate()).padStart(2, '0'), 10);
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
 
   today = yyyy + "-"+mm+"-"+dd;
-  
+  futuredate = yyyy+"-"+mm+"-"+ (dd+1);
+  sessionStorage.setItem('checkIn', today)
+  sessionStorage.setItem('checkOut', futuredate)
   const handlecheckIn = (e) => {
     if(e.target.value >= today){
       setCheckinerror('')
@@ -65,6 +68,7 @@ const  DatePickers = () => {
           InputLabelProps={{
             shrink: true,
           }}
+          value={today}
           onChange = { handlecheckIn }
         />
         <span style={{fontSize: "10px", color: "red", paddingLeft: "10px"}}>{checkInerror}</span>
@@ -76,6 +80,7 @@ const  DatePickers = () => {
           type="date"
           className={classes.textField}
           onChange = { handlecheckOut }
+          value={futuredate}
           InputLabelProps={{
             shrink: true,
           }}

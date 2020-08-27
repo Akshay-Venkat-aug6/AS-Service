@@ -2,6 +2,8 @@ import React from 'react';
 import InputNum from '../../form/input/inputnumber';
 
 const TravellerNo = () => {
+  sessionStorage.setItem('Adult No', 2)
+
   const handleTravellerNo = (e) => {
     sessionStorage.setItem('Adult No', e.target.value)
   }
@@ -14,6 +16,7 @@ const TravellerNo = () => {
           handleChange = { handleTravellerNo }
           required = "false"
           min = "0"
+          value="2"
         />
       </div>
     </>

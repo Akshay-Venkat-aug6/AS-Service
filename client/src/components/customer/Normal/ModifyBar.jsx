@@ -3,7 +3,8 @@ import ModifyButton from '../ModifySearch/Modifybutton';
 import SearchContent from '../ModifySearch/SearchContent';
 
 const ModifyBar = (props) => {
-  
+  sessionStorage.setItem('checkIn', props.checkIn)
+  sessionStorage.setItem('checkOut', props.checkOut)
   return (
     <>
       <div style={{display: "flex", paddingTop: "30px"}}>

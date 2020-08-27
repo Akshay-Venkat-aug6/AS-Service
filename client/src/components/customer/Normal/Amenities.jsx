@@ -2,8 +2,7 @@ import React from 'react';
 import HotelName from '../ameities/Hotelname';
 import Price from '../ameities/Price';
 import Rating from '../ameities/Rating';
-import Ametities from '../ameities/ameities';
-// import { Navbar } from 'react-bootstrap';
+// import Ametities from '../ameities/ameities';
 
 const Amenities = () => {
   return (

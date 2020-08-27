@@ -2,6 +2,8 @@ import React from 'react';
 import InputNum from '../../form/input/inputnumber';
 
 const RoomNo = () => {
+  sessionStorage.setItem('Room No', 1)
+
   const handleRoomChange = (e) => {
     sessionStorage.setItem('Room No', e.target.value)
   }
@@ -14,6 +16,7 @@ const RoomNo = () => {
           handleChange = {handleRoomChange}
           required = "false"
           min = "0"
+          value="1"
         />      
       </div>
     </>

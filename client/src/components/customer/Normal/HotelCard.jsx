@@ -3,10 +3,7 @@ import Hotellist from '../HotelCard/HotelsList';
 import { connect } from 'react-redux';
 
 const HotelCard = (props) => {
-
-  useEffect(() => {
-    console.log(props.hotels)
-  })
+  console.log(props.hotels)
   return (
     <>
       <Hotellist hotelslist = {props.hotels}/>

@@ -9,8 +9,11 @@ import Inputtext from '../form/input/inputtext';
 import { connect } from 'react-redux';
 import { SEARCH } from '../../../store/customer/search/action';
 import { bindActionCreators } from "redux";
+import { useState } from 'react';
 
 const Search = (props) => {
+  const [error, setError] = useState('');
+  
   const hanldeSearchHotel = (e) => {
     sessionStorage.setItem('searchPart', e.target.value)
   }
@@ -27,12 +30,18 @@ const Search = (props) => {
       childno: sessionStorage.getItem('child No'),
       rooms: sessionStorage.getItem('Room No')
     }
-    
-    const url = `/hotel-search/dom/search?checkIn=${search_details.checkIn}&checkOut=${search_details.checkOut}&noofadult=${search_details.adultno}&noofrooms=${search_details.rooms}&partcode=${search_details.part}`
-    setTimeout(() => {
-      history.push(url)
-    })
+    if(!search_details.part){
+      setError('Enter the Location')
+    }
+    else{
+      setError('');
+      const url = `/hotel-search/dom/search?checkIn=${search_details.checkIn}&checkOut=${search_details.checkOut}&noofadult=${search_details.adultno}&noofrooms=${search_details.rooms}&partcode=${search_details.part}`
+      setTimeout(() => {
+        history.push(url)
+      })
+    }
   }
+
   return(
     <div className="searchBox boxShadow p10 m5">
       <div className="searchHeader">
@@ -47,6 +56,7 @@ const Search = (props) => {
               label = "Select City or Location or Hotel Name"
               handleChange = { hanldeSearchHotel }
             />
+            <div style={{color: "red", fontSize:"12px", marginTop: "-10px"}}>{error}</div>
           </div>
           <Date />
           <div style={{display: "flex", marginLeft: "15px", paddingTop: "20px"}}>
@@ -54,11 +64,13 @@ const Search = (props) => {
             <Child />
           </div>
           <RoomNo />
-          <Button 
-            content="Search"
-            classname="search-button"
-            type="submit"
-          />
+          <div style={{marginTop: "50px"}}>
+            <Button 
+              content="Search"
+              classname="search-button"
+              type="submit"
+            />
+          </div>
         </form>
       </div>
     </div>

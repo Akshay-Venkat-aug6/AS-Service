@@ -6,7 +6,7 @@ const BacktoSearch = () => {
     <>
       <div className="back-icon">
         <FiArrowLeftCircle className="leftarrow-icon"/>&nbsp;&nbsp;
-        <a href="#">Back to Search</a>
+        <a href="/">Back to Search</a>
       </div>
       <hr />
     </>
